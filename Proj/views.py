@@ -306,8 +306,9 @@ class Write(FormView):
                 new_content = form.cleaned_data['your_content']
                 new_star = form.cleaned_data['your_star']
                 new_tag = form.cleaned_data['your_tag'].split(',')
+                new_user = request.session.get('my_id')
 
-                data = Text.objects.create(id=None,boardnumber=me, text_title=new_title, content=new_content, star=new_star)    
+                data = Text.objects.create(id=None,boardnumber=me, text_title=new_title, content=new_content, star=new_star, user=new_user)    
                 if new_tag != None:
                     for tag in new_tag:
                         tag = tag.strip()

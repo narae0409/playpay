@@ -53,7 +53,13 @@
                             {% else %}
                             <p>No Contents !!!</p>
                             {% endif %}<hr>    
-                    <a href="/board/{{bn}}/{{tn}}/delete/">삭제하기</a><br>
+                    {% if request.session.my_id == 'admin@admin.admin' %}
+                        <a href="/board/{{bn}}/{{tn}}/delete/">삭제하기</a><br>
+                    {% else %}
+                        {% if request.session.my_id == data.user %}
+                            <a href="/board/{{bn}}/{{tn}}/delete/">삭제하기</a><br>
+                        {% endif %}
+                    {% endif %}
                     <a href="/board/{{bn}}/">뒤로가기</a>
                     </div>
                             </form>

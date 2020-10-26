@@ -27,6 +27,7 @@ class Text(models.Model):
     content = models.CharField(max_length=100)
     star = models.IntegerField(default=0)
     tags = TaggableManager(blank=True)
+    user = models.CharField(max_length=100, default='default')
 
     def __str__(self):
         return self.text_title
