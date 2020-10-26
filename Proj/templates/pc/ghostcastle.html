@@ -1,0 +1,14 @@
+{% extends "Proj/main.html" %}
+{% block content %}
+<h1>고스트캐슬 PC방</h1>
+<h2>PC 사양</h2>
+CPU : i5-4690<br>
+VGA :  RTX 2060<br>
+RAM : 16GB<br>
+MONITOR : Benq 2720(144hz)<br>
+<br>
+<h2>회원정액제</h2>
+<img src="/media/pop.jpg" width="200" height="200">
+<br>
+<h2><a href="{% url 'proj:maps' name %}">pc방 위치</a></h2>
+{% endblock %}
