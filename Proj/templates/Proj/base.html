@@ -39,6 +39,11 @@
         <a class="nav-link" href={% url 'proj:boardmanage' %}>게시판 관리</a>
       </li>
       {% endif %}
+
+      <li class="nav-item">
+        <a class="nav-link" href={% url 'proj:food' %}>메뉴 추천</a>
+      </li>
+
 <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           게시판
@@ -66,17 +71,18 @@
     {% if request.session.name %}
     <a>이름 : {{ request.session.name }} //</a>
     {% else %}
-    <a>이름 : None //</a>
+
     {% endif %}
     {% if request.session.time %}
     <a>잔여시간 : {{ request.session.time }}분</a>
     {% else %}
-    <a>잔여시간 : None </a>
+
     {% endif %}
     </font>
-  
+    {% if request.session.name %}
     <a class="nav-link" href={% url 'proj:payment' %}>충전</a>
     <a class="nav-link" href={% url 'proj:refund' %}>환불</a>
+    {% endif %}
     </form>
 
 <head> 
@@ -210,7 +216,7 @@
     <div id="footer"><pre>
     
     <div id="color">
-                                                              <b>팀 명</b> 사과파이     <b>팀장</b> 유승현
+                                                              <b>팀 명</b> 사과파이     <b>팀장</b> 유승현     <b>팀원</b> 이상훈
                                                               <b>주소</b> 충청북도 충주시 대소원면 대학로 50(한국교통대학교) 중앙정보관      TEL 010-1234-5678
                                                               COPYRIGHT 2020. APPLEPIE. ALL RIGHTS RESERVED.</div>
     </pre></div>

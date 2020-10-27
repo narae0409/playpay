@@ -25,18 +25,13 @@
                 <div id="login-column" class="col-md-6">
                     <div id="login-box" class="col-md-12">
                         <form id="login-form" class="form" action="" method="post" style="text-align:center">
-                            <h3 class="text-center text-info">Login</h3>
-                            <form action="{% url 'proj:login' %}" method='post' >
+                            <h3 class="text-center text-info">Can I help you??</h3>
+                            <form action="{% url 'proj:food' %}" method='post' >
                                 {% csrf_token %}<br>
+                                
+                                {{ form.as_p }}
 
-                                {% for field in form %}
-                                <div class="form-group">
-                                    <input type="{{field.field.widget.input_type}}" class="form-control" id="{{field.id_for_label}}" 
-                                        placeholder="{{field.label}}" name="{{field.name}}">
-                                </div>
-                            {% endfor %}  
-                                <input type='submit' class='btn btn-warning' value='로그인' />
-                                <a class="btn btn-success" href="{% url 'proj:join' %}">회원가입</a>
+                                <input type='submit' class='btn btn-warning' value='메뉴 선택' />
                             </form>
                         </form>
                     </div>

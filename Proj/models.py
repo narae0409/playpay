@@ -8,6 +8,11 @@ class User(models.Model):
     name = models.CharField(max_length=100)
     ph = models.IntegerField(default=0)
     time = models.IntegerField(default=0)
+    sex = models.IntegerField(default=0)
+    region = models.IntegerField(default=0)
+    avg_time = models.IntegerField(default=0)
+    food_choice = models.IntegerField(default=0)
+    age = models.IntegerField(default=20)
 
     
     def __str__(self):

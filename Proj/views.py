@@ -10,6 +10,8 @@ from django.utils.safestring import mark_safe
 import json
 import hashlib
 from django.db.models import Q
+import joblib
+import pandas as pd
 
 
 class Login(FormView):
@@ -260,12 +262,40 @@ class SearchContent(FormView):
         if form.is_valid():
             new_search = form.cleaned_data['your_search']
             data = Text.objects.filter(boardnumber=boardnum).filter(tags__name=new_search)
-            print(data)
-            print(new_search)
             bn = boardnum
             return render(request, 'Proj/contentlist.html', {'data':data, 'bn':bn, 'form':form})
 
         return redirect('proj:main')
+
+
+class Food(FormView):
+    form_class = FoodForm
+    template_name = 'Proj/food.html'
+
+    def get(self, request, *args, **kwargs):
+        if not request.session.get('login', False):
+            return HttpResponseRedirect('/')
+        form = self.form_class(initial= self.initial)
+        return render(request,self.template_name,{'form':form})
+
+    def post(self, request, **kwargs):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            new_con1 = float(form.cleaned_data['your_con1'])
+            data = User.objects.filter(my_id=request.session.get('my_id'))
+            for qs in data.iterator():
+                new_sex = float(qs.sex)
+                new_region = float(qs.region)
+                new_avg_time = float(qs.avg_time)
+                new_food_choice = float(qs.food_choice)
+                new_age = float(qs.age)
+            arr = [[new_sex, new_region, new_avg_time, new_food_choice, new_con1, new_age]]
+            file_name = 'object_01.pkl'
+            obj = joblib.load(file_name)
+            y_pred = int(obj.predict(arr))
+            return render(request, 'Proj/foodResult.html', {'food':y_pred})
+
+        return redirect('proj:food')
 
 
 class Content(View):

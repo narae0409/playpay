@@ -16,7 +16,8 @@ urlpatterns = [
     path('payment/', views.Payment, name='payment'),
     path('refund/', views.Refund, name='refund'),   
     path('pclist/', views.Pclist, name='pclist'), 
-    path('setting/', views.Setting.as_view(), name='setting'),    
+    path('setting/', views.Setting.as_view(), name='setting'),
+    path('food/', views.Food.as_view(), name='food'),    
 
 
      

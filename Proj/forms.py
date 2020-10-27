@@ -7,6 +7,8 @@ class JoinForm(forms.Form):
     your_pw = forms.CharField(label='비밀번호', max_length=100, widget = forms.PasswordInput)
     your_ph = forms.IntegerField(label='전화번호(숫자만)')
     your_name = forms.CharField(label='이름', max_length=10)
+    your_sex = forms.ChoiceField(widget = forms.Select(), choices = ([('1','리뷰 게시판'), ('2','공지사항')]), initial='1', label='게시판 선택', required = True)
+
 
 class LoginForm(forms.Form):
     your_id = forms.EmailField(label='아이디', max_length=100)
@@ -41,3 +43,6 @@ class SearchForm(forms.Form):
 
 class SettingForm(forms.Form):
     your_settingnum = forms.IntegerField(label='시간설정')
+
+class FoodForm(forms.Form):
+    your_con1 = forms.ChoiceField(widget = forms.Select(), choices = ([('0','갈비만두'), ('1','감자튀김'),('2','떡볶이'), ('3','레몬에이드'), ('4','불닭볶음면'), ('5','소떡소떡'), ('6','수제소시지'), ('7','스프라이트'), ('8','슬라이스 치즈'), ('9','신라면'), ('10','아메리카노'), ('11','자몽에이드'), ('12','제육덮밥'), ('13','짜파게티'), ('14','참치김밥'), ('15','청포도에이드'), ('16','치킨마요덮밥'), ('17','코카콜라'), ('18','펩시'), ('19','포스틱'), ('20','포카칩'), ('21','핫도그'), ('22','핫바'), ('23','햇반'), ('24','허니버터칩'), ('25','홈런볼')]), initial='0', label='메뉴 선택', required = True)
