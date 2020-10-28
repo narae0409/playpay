@@ -76,11 +76,15 @@ class Join(FormView):
             new_pw = form.cleaned_data['your_pw']
             new_ph = form.cleaned_data['your_ph']
             new_name = form.cleaned_data['your_name']
+            new_sex = form.cleaned_data['your_sex']
+            new_age = form.cleaned_data['your_age']
+            new_avg_time = form.cleaned_data['your_avg_time']
+            new_food_choice = form.cleaned_data['your_food_choice']
             m = hashlib.sha256()
             m.update(new_pw.encode('UTF-8'))
             x = m.hexdigest()
             try:
-                User.objects.create(my_id=new_id, pw=x, name=new_name, ph=new_ph)
+                User.objects.create(my_id=new_id, pw=x, name=new_name, ph=new_ph, sex = new_sex, region = 6., avg_time = new_avg_time, food_choice=new_food_choice, age=new_age)
             except:
                 return redirect('proj:join')
             request.session['login'] = False

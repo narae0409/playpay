@@ -7,8 +7,10 @@ class JoinForm(forms.Form):
     your_pw = forms.CharField(label='비밀번호', max_length=100, widget = forms.PasswordInput)
     your_ph = forms.IntegerField(label='전화번호(숫자만)')
     your_name = forms.CharField(label='이름', max_length=10)
-    your_sex = forms.ChoiceField(widget = forms.Select(), choices = ([('1','리뷰 게시판'), ('2','공지사항')]), initial='1', label='게시판 선택', required = True)
-
+    your_age = forms.IntegerField(label='나이')
+    your_sex = forms.IntegerField(label='성별(안내문 참조)')
+    your_avg_time = forms.IntegerField(label='하루 평균 PC방 이용시간(안내문 참조)')
+    your_food_choice = forms.IntegerField(label='음식 주문 여부(안내문 참조)')
 
 class LoginForm(forms.Form):
     your_id = forms.EmailField(label='아이디', max_length=100)
