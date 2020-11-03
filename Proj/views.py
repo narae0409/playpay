@@ -375,28 +375,28 @@ class Delete(View):
         return HttpResponseRedirect('/board/1/')
 
 def Fox(request):
-    name = 'fox'
-    return render(request, 'pc/fox.html', {'name':name})
+    name1 = 'fox'
+    return render(request, 'pc/fox.html', {'name1':name1})
 
 def Ghostcastle(request):
-    name = 'ghostcastle'
-    return render(request, 'pc/ghostcastle.html', {'name':name})
+    name2 = 'ghostcastle'
+    return render(request, 'pc/ghostcastle.html', {'name2':name2})
 
 def Lime(request):
-    name = 'lime'
-    return render(request, 'pc/lime.html', {'name':name})
-
-def Pop(request):
-    name = 'pop'
-    return render(request, 'pc/pop.html', {'name':name})
-
-def Skybridge(request):
-    name = 'skybridge'
-    return render(request, 'pc/skybridge.html', {'name':name})
+    name3 = 'lime'
+    return render(request, 'pc/lime.html', {'name3':name3})
 
 def Ocelot(request):
-    name = 'ocelot' 
-    return render(request, 'pc/ocelot.html', {'name':name})
+    name4 = 'ocelot'
+    return render(request, 'pc/ocelot.html', {'name4':name4})
+
+def Pop(request):
+    name5 = 'pop'
+    return render(request, 'pc/pop.html', {'name5':name5})
+
+def Skybridge(request):
+    name6 = 'skybridge' 
+    return render(request, 'pc/skybridge.html', {'name6':name6})
 
 def Pclist(request):
     name1='fox'

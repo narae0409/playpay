@@ -71,18 +71,16 @@
     {% if request.session.name %}
     <a>이름 : {{ request.session.name }} //</a>
     {% else %}
-
+    이름 : None //
     {% endif %}
     {% if request.session.time %}
     <a>잔여시간 : {{ request.session.time }}분</a>
     {% else %}
-    <a>잔여시간 : 0분</a>
+    <a>잔여시간 : None </a>
     {% endif %}
     </font>
-    {% if request.session.name %}
-    <a class="nav-link" href={% url 'proj:payment' %}>충전</a>
-    <a class="nav-link" href={% url 'proj:refund' %}>환불</a>
-    {% endif %}
+    <a class="nav-link" href={% url 'proj:payment' %} style="color:#FF8868">충전</a>
+    <a class="nav-link" href={% url 'proj:refund' %} style="color:#FF8868">환불</a>
     </form>
 
 <head> 
