@@ -5,8 +5,6 @@ from taggit.models import *
 from django.shortcuts import get_object_or_404, render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from Proj.forms import *
-from django.core.exceptions import PermissionDenied
-from django.utils.safestring import mark_safe
 import json
 import hashlib
 from django.db.models import Q
